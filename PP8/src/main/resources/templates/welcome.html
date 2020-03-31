@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Spring Boot:</title>
+</head>
+
+<body>
+<label>Name</label><br>
+<td th:text="${user.name}" ></td><br><br>
+<label>Password</label><br>
+<td th:text="${user.password}" ></td><br><br>
+<label>Age</label><br>
+<td th:text="${user.age}" ></td><br><br>
+</body>
+<div th:insert="~{logout :: log}"></div>
+</html>
