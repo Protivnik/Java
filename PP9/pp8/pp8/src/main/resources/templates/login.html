@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/color/48/000000/spring-logo.png">
+    <title>Login page</title>
+    <div th:insert="~{logout ::up}"></div>
+</head>
+<body>
+<div class="container-fluid mt-5">
+    <div class="form-group row justify-content-center ">
+        <div class="col-sm-3" >
+            <form method="post" action="/login">
+                <h5><b>Please sign in</b></h5>
+                <input class="form-control form-control-sm"  type="email" name="j_username" placeholder="Email address"/>
+                <input class="form-control form-control-sm mt-1" type="password" name="j_password" placeholder="Password"/>
+                <button class="btn-sm-3 btn-primary btn-block mt-1" type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div th:insert="~{logout ::lower}"></div>
+</body>
+</html>

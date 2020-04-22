@@ -1,0 +1,30 @@
+
+<html xmlns:th="http://www.thymeleaf.org">
+<html>
+<head>
+    <title>Add User</title>
+</head>
+<body>
+<h2>New User</h2>
+<form method="post">
+    <label>firstName</label><br>
+    <input name="firstName" type="text"><br><br>
+    <label>lastName</label><br>
+    <input name="lastName" type="text"><br><br>
+    <label>email</label><br>
+    <input name="email" type="email"><br><br>
+    <label>password</label><br>
+    <input name="password" type="password"><br><br>
+    <label>Age</label><br>
+    <input name="age" type="number" min="1"><br><br>
+    <label>Role</label><br>
+    <p><b>Role</b></p>
+    <tr th:each = "role: ${roles}" >
+        <input type="checkbox" name="rolesId" th:value="${role.id}" >
+        <td th:text="${role.role}"></td><Br>
+    </tr>
+    <input type="submit" value="save"/>
+</form>
+</body>
+<div th:insert="~{logout :: log}"></div>
+</html>

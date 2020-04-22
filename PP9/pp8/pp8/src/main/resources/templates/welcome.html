@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="https://img.icons8.com/color/48/000000/spring-logo.png">
+    <title>User page</title>
+    <div th:insert="~{logout ::up}"></div>
+</head>
+<body class=" bg-light">
+<nav class="navbar navbar-dark bg-dark">
+    <div class="navbar-brand">
+        <p><b th:text="${user.getEmail()}"></b><span
+                th:text="' with roles: ' +${user.getRolesString(user.getRoles())}"></span></p>
+    </div>
+    <div class="navbar-brand pull-right ">
+        <p><a href="/logout" methods="post" class="text-secondary">Logout</a></p>
+    </div>
+</nav>
+
+<div class="container-fluid pl-0 pr-0 bg-white ">
+    <div class="row ">
+        <div class="flex-column-sm-2 col-md-2 bg-white  pr-0 sidebar " style="height: 1280px">
+            <div th:if="${user.isAdmin(user)}">
+                <a href="admin" class="btn btn-link btn-block  text-left">Admin</a>
+            </div>
+            <div th:if="${user.isUser(user)}">
+                <a href="welcome" class="btn btn-primary btn-block active text-left" aria-pressed="true">User</a>
+            </div>
+        </div>
+
+        <div class="col-sm-10  bg-light text-dark main">
+
+            <div class="container-fluid ">
+                <br>
+                <h1> User information-page</h1>
+                <div class="container-fluid border rounded px-0">
+                    <div class="modal-header">
+                        <h4 class="modal-title">About user</h4>
+                    </div>
+                    <div class="modal-body bg-white ">
+                        <table class="table table-striped ">
+                            <tbody>
+                            <tr></tr>
+                            <tr>
+                                <th>ID</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                            </tr>
+
+
+                            <tr>
+
+                                <th scope="row" th:text="${user.id}">11</th>
+                                <th th:class="font-weight-normal" th:text="${user.firstName}"></th>
+                                <th th:class="font-weight-normal" th:text="${user.lastName}"></th>
+                                <th th:class="font-weight-normal" th:text="${user.age}"></th>
+                                <th th:class="font-weight-normal" th:text="${user.email}"></th>
+                                <th th:class="font-weight-normal"
+                                    th:text="${user.getRolesString(user.getRoles())}"></th>
+
+                            </tr>
+
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+<div th:insert="~{logout ::lower}"></div>
+</html>

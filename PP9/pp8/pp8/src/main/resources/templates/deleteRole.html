@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p><b>Role</b></p>
+<tr th:each = "role: ${roles}" >
+    <input type="checkbox" name="rolesId" th:value="${role.id}" checked><td th:text="${role.role}"></td><Br>
+    <a href= "delete.html" th:href = "@{admin/deleteRole/{id}(id=${role.id})}">delete</a>
+
+</tr>
+</body>
+</html>
